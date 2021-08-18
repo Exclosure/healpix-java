@@ -23,7 +23,7 @@ package healpix;
 import java.util.Arrays;
 
 /**
- * Basic opersations related to the HEALPix pixelisation. This class is conceptually very similar
+ * Basic operations related to the HEALPix pixelation. This class is conceptually very similar
  * the the Healpix_Base class of Healpix_cxx. It supports the NESTED scheme for nside parameters
  * which are powers of 2, and the RING scheme for arbitrary positive nside parameters. The maximum
  * supported nside parameter is 2^29.
