@@ -7,10 +7,6 @@ plugins {
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
-    flatDir{
-        dirs "ext-lib"
-    }
-
 }
 
 dependencies {
@@ -23,7 +19,7 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:30.0-jre'
 
-    implementation 'gov.nasa.gfsc.heasarc.nom-tam-fits:nom-tam-fits:1.14.2'
+    implementation 'org.opencadc:nom-tam-fits:1.16.3'
 }
 
 spotless {
