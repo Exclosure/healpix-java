@@ -15,8 +15,6 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Run Tests
-        run: ./gradlew test
       - name: Publish package
         run: ./gradlew publish
         env:
