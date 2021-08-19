@@ -4,7 +4,7 @@ plugins {
     id "com.diffplug.spotless" version "5.12.4"
 }
 
-group 'io.txcl'
+group 'io.txcl.healpix'
 version '4.0.0'
 sourceCompatibility = 11
 
