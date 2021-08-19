@@ -1,6 +1,7 @@
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
+    id 'maven-publish'
     id "com.diffplug.spotless" version "5.12.4"
 }
 
@@ -27,9 +28,6 @@ spotless {
     }
 }
 
-plugins {
-    id("maven-publish")
-}
 publishing {
     repositories {
         maven {
