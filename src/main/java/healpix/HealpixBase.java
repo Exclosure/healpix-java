@@ -1,23 +1,3 @@
-/*
- *  This file is part of Healpix Java.
- *
- *  This code is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This code is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this code; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- *
- *  For more information about HEALPix, see http://healpix.sourceforge.net
- */
-
 package healpix;
 
 import java.util.Arrays;
@@ -67,20 +47,20 @@ public class HealpixBase extends HealpixTables {
   protected Scheme scheme;
 
   private static long spread_bits(int v) {
-    return (long) (utab[v & 0xff])
-        | ((long) (utab[(v >>> 8) & 0xff]) << 16)
-        | ((long) (utab[(v >>> 16) & 0xff]) << 32)
-        | ((long) (utab[(v >>> 24) & 0xff]) << 48);
+    return (long) (HealpixTables.utab[v & 0xff])
+        | ((long) (HealpixTables.utab[(v >>> 8) & 0xff]) << 16)
+        | ((long) (HealpixTables.utab[(v >>> 16) & 0xff]) << 32)
+        | ((long) (HealpixTables.utab[(v >>> 24) & 0xff]) << 48);
   }
 
   private static int compress_bits(long v) {
     long raw = v & 0x5555555555555555L;
     raw |= raw >>> 15;
     int raw1 = (int) (raw & 0xffffL), raw2 = (int) ((raw >>> 32) & 0xffffL);
-    return ctab[raw1 & 0xff]
-        | (ctab[raw1 >>> 8] << 4)
-        | (ctab[raw2 & 0xff] << 16)
-        | (ctab[raw2 >>> 8] << 20);
+    return HealpixTables.ctab[raw1 & 0xff]
+        | (HealpixTables.ctab[raw1 >>> 8] << 4)
+        | (HealpixTables.ctab[raw2 & 0xff] << 16)
+        | (HealpixTables.ctab[raw2 >>> 8] << 20);
   }
 
   private Xyf nest2xyf(long ipix) {
@@ -93,12 +73,12 @@ public class HealpixBase extends HealpixTables {
   }
 
   private long xyf2ring(int ix, int iy, int face_num) {
-    long jr = ((long) jrll[face_num] * nside) - (long) ix - (long) iy - 1L;
+    long jr = ((long) HealpixTables.jrll[face_num] * nside) - (long) ix - (long) iy - 1L;
 
     RingInfoSmall ris = get_ring_info_small(jr);
     long nr = ris.ringpix >>> 2, kshift = ris.shifted ? 0 : 1;
 
-    long jp = (jpll[face_num] * nr + (long) ix - (long) iy + 1L + kshift) / 2L;
+    long jp = (HealpixTables.jpll[face_num] * nr + (long) ix - (long) iy + 1L + kshift) / 2L;
     if (jp > nl4) jp -= nl4;
     else if (jp < 1) jp += nl4;
 
@@ -145,8 +125,8 @@ public class HealpixBase extends HealpixTables {
       ret.face = 8 + (int) ((iphi - 1) / nr);
     }
 
-    long irt = iring - ((long) jrll[ret.face] * nside) + 1L;
-    long ipt = 2L * iphi - (long) jpll[ret.face] * nr - kshift - 1L;
+    long irt = iring - ((long) HealpixTables.jrll[ret.face] * nside) + 1L;
+    long ipt = 2L * iphi - (long) HealpixTables.jpll[ret.face] * nr - kshift - 1L;
     if (ipt >= nl2) ipt -= 8L * nside;
 
     ret.ix = (int) ((ipt - irt) >>> 1);

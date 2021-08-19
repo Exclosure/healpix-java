@@ -9,10 +9,10 @@ package healpix;
  * @author Martin Reinecke
  */
 final class CircleFinder {
-  private healpix.Vec3 center;
+  private Vec3 center;
   private double cosrad;
 
-  private void getCircle(healpix.Vec3[] point, int q1, int q2) {
+  private void getCircle(Vec3[] point, int q1, int q2) {
     center = point[q1].add(point[q2]);
     center.normalize();
     cosrad = point[q1].dot(center);

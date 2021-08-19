@@ -1,17 +1,13 @@
 Installation of Healpix Java
 ----------------------------
-requires a Java Development Kit and Apache Ant
-(see below Notes on installing Java, and on junit)
-% ant 
-
-for information on the build targets available:
-% ant -p
+Requires a Java Development Kit and gradle
 
 Documentation
 -------------
 preinstalled in <HEALPIX>/doc/html/java/index.html
 
-% ant docs
+% ./gradlw javaDoc
+
 will generate
 <HEALPIX>/src/java/doc/index.html
 from the source files
