@@ -6,6 +6,7 @@ Significant changes:
 * Movement of all modules from `healpix.essential` -> `healpix`
 * Transition to gradle + normal Java file structure
 * Cleanup thanks to spotless and errorprone tools
+* Major version bump -> `4.0.0`
 
 Installation of Healpix Java
 ----------------------------
