@@ -1,5 +1,7 @@
 package healpix;
 
+import java.util.Objects;
+
 /**
  * Cartesian 3-vector. Instead of using the javax.vecmath.Vector3d class, this separate class was
  * implemented for two reasons: first, to avoid the external dependency from vecmath.jar, and also
@@ -196,9 +198,6 @@ public class Vec3 {
   }
 
   public int hashCode() {
-    int result = Double.valueOf(x).hashCode();
-    result = 31 * result + Double.valueOf(y).hashCode();
-    result = 31 * result + Double.valueOf(z).hashCode();
-    return result;
+    return Objects.hash(x, y, z);
   }
 }

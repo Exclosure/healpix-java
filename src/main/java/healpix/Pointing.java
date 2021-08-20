@@ -1,5 +1,7 @@
 package healpix;
 
+import java.util.Objects;
+
 /**
  * An angular position on the unit sphere.
  *
@@ -84,8 +86,6 @@ public class Pointing {
   }
 
   public int hashCode() {
-    int result = Double.valueOf(theta).hashCode();
-    result = 31 * result + Double.valueOf(phi).hashCode();
-    return result;
+    return Objects.hash(theta, phi);
   }
 }

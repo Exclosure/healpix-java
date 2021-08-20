@@ -19,15 +19,6 @@ public class FastMathPerfTest extends TestCase {
     System.out.println("Rough performance test of math functions");
     long cnt, tstart;
     double dummy = 0, di, time;
-    di = 1. / ncomp;
-    tstart = System.nanoTime();
-    cnt = 0;
-    for (double i = 0; i < 1; i += di) {
-      dummy += Math.sqrt(i);
-      ++cnt;
-    }
-    time = 1e-9 * (System.nanoTime() - tstart);
-    System.out.println("sqrt: " + form.format(cnt / time * 1e-6) + "MOps/s");
     di = 4 * Math.PI / ncomp;
     tstart = System.nanoTime();
     cnt = 0;
@@ -63,6 +54,8 @@ public class FastMathPerfTest extends TestCase {
     }
     time = 1e-9 * (System.nanoTime() - tstart);
     System.out.println("atan: " + form.format(cnt / time * 1e-6) + "MOps/s");
+
+
     di = 1000. / ncomp;
     tstart = System.nanoTime();
     cnt = 0;
@@ -73,6 +66,8 @@ public class FastMathPerfTest extends TestCase {
     time = 1e-9 * (System.nanoTime() - tstart);
     System.out.println("atan2: " + form.format(cnt / time * 1e-6) + "MOps/s");
     di = 1000. / ncomp;
+
+
   }
 
   public void test_perf_fastmath() {
