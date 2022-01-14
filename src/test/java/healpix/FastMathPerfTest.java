@@ -55,7 +55,6 @@ public class FastMathPerfTest extends TestCase {
     time = 1e-9 * (System.nanoTime() - tstart);
     System.out.println("atan: " + form.format(cnt / time * 1e-6) + "MOps/s");
 
-
     di = 1000. / ncomp;
     tstart = System.nanoTime();
     cnt = 0;
@@ -66,8 +65,6 @@ public class FastMathPerfTest extends TestCase {
     time = 1e-9 * (System.nanoTime() - tstart);
     System.out.println("atan2: " + form.format(cnt / time * 1e-6) + "MOps/s");
     di = 1000. / ncomp;
-
-
   }
 
   public void test_perf_fastmath() {

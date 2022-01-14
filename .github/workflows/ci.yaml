@@ -14,5 +14,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - run: ./gradlew check
-      - run: ./gradle test
+      - run: ./gradlew spotlessCheck
+      - run: ./gradlew test
